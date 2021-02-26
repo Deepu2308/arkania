@@ -447,7 +447,7 @@ class SimpleEnv(gym.Env):
         self._init()
 
     #-----------------------------------------------------------------------------------------------
-    def get_sight_matrix(self, agent, size = 3):
+    def get_sight_matrix(self, agent, size = 6):
         tile_map = [0, 6, 5, 1, 1, 1, 1, 1, 2, 2, 4, 3, 7, -1, 14, 13, 8, 9, 10, 11, -1, 1, 2, 2, 12, -99, -99]
         #size = 6
         smat = np.zeros((2 * size + 1, 2 * size + 1), dtype=int)
