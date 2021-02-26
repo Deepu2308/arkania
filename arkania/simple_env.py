@@ -431,6 +431,7 @@ class SimpleEnv(gym.Env):
 
     #-----------------------------------------------------------------------------------------------
     def __init__(self, seed=2021):
+        
         self.seed = seed
         self.viewer = None
         self.map = np.zeros((18, 18), dtype=int)
@@ -441,13 +442,14 @@ class SimpleEnv(gym.Env):
 
     #-----------------------------------------------------------------------------------------------
     def reset(self):
+        
         self._cleanup()
         self._init()
 
     #-----------------------------------------------------------------------------------------------
-    def get_sight_matrix(self, agent):
+    def get_sight_matrix(self, agent, size = 3):
         tile_map = [0, 6, 5, 1, 1, 1, 1, 1, 2, 2, 4, 3, 7, -1, 14, 13, 8, 9, 10, 11, -1, 1, 2, 2, 12, -99, -99]
-        size = 6
+        #size = 6
         smat = np.zeros((2 * size + 1, 2 * size + 1), dtype=int)
         for r in range(2 * size + 1):
             for c in range(2 * size + 1):
@@ -688,7 +690,7 @@ class SimpleEnv(gym.Env):
         """
         This actually does the initialization
         """
-
+        rnd.seed(0)
         self.season = 0
         self.day = 0
         self.time = 0
